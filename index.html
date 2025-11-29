@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Store - Your Literary Destination</title>
+    <meta name="keywords" content="ethical, ethics, this site is Educational">
+    <meta name="description" content="This website is a safe educational demo project created for learning web development. It does not sell real products, collect payment information, or request personal data.">
+    <meta name="robots" content="safe, all">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Books security Store is a demo project website showcasing web development skills. This is a safe, non-commercial, educational project.">
+    <meta name="keywords" content="web development, demo project, educational project, GitHub Pages">
+    <meta name="author" content="Omar Elshoura">
+    <meta name="description" content="Bookssecurity Store is an online bookstore for Bookssecurity enthusiasts. We sell educational books on ethical , penetration testing, and Books. All content is legal and for learning purposes only.">
+
+
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+
+            <div class="logo">     Books STORE</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#categories" onclick="closeMenu()">Categories</a></li>
+                <li><a href="#features" onclick="closeMenu()">Features</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to Our Books Store</h1>
+        <p>Discover Your Next Great Book To Read</p>
+        <p><strong>Note:</strong> This website is a **demo project for educational purposes only. It is not a real online store.**</p>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search for books, authors, or ISBN..." id="searchInput">
+            <button onclick="searchBooks()">Search</button>
+        </div>
+    </section>
+
+    <!-- Categories & Products -->
+    <section class="categories" id="categories">
+        <h2>Browse Our Collection</h2>
+        
+        <div class="category-tabs">
+            <div class="category-tab active" onclick="filterCategory('all')">All Books</div>
+            <div class="category-tab" onclick="filterCategory('fiction')">Programming Books</div>
+            <div class="category-tab" onclick="filterCategory('mystery')">Language Books</div>
+            <div class="category-tab" onclick="filterCategory('scifi')">CS Books</div>
+            <div class="category-tab" onclick="filterCategory('biography')">Networking Books</div>
+            <div class="category-tab" onclick="filterCategory('business')">IOT Books</div>
+            <div class="category-tab" onclick="filterCategory('selfhelp')">IT Books</div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="feature-box">
+                <div class="feature-icon">🚚</div>
+                <h3>Free Shipping</h3>
+                <p>On orders over $50</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">💯</div>
+                <h3>Quality Guaranteed</h3>
+                <p>100% authentic books</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🔄</div>
+                <h3>Easy Returns</h3>
+                <p>30-day return policy</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🎁</div>
+                <h3>Gift Wrapping</h3>
+                <p>Free gift wrapping service</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>📚 Books STORE</h3>
+
+            <div class="footer-links">
+                <a class="footer-btn" href="aboutus.html" target="_blank">About Us</a>
+                <a class="footer-btn" href="privacy.html" target="_blank">Privacy Policy</a>
+                <!-- <a class="footer-btn" href="terms.html" target="_blank">Terms & Conditions</a> -->
+                <a class="footer-btn" href="support.html" target="_blank">Customer Support</a>
+            </div>
+
+
+
+            <div>
+                <a class="whatsapp-button" href="https://wa.me/201024856727" target="_blank">
+                    Chat me on WhatsApp
+                </a> 
+            </div> <br>
+
+
+
+            <p>&copy; made with love by "omar elshoura" and claude.❤️</p>
+        </div>
+        <div style="text-align:center; font-size:14px; margin-top:10px; opacity:0.7;">
+                This is a demo educational project for learning web development. No real purchases are available, and no personal or payment information is collected.
+</div>
+
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal" onclick="closeCartOnOutside(event)">
+        <div class="cart-content" onclick="event.stopPropagation()">
+            <h2>Shopping Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Total: $0.00</div>
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+            <button class="checkout-btn" style="background: #6c757d; margin-top: 0.5rem;" onclick="toggleCart()">Continue Shopping</button>
+        </div>
+    </div>
+    <link rel="stylesheet" href="announcement.html">
+</head>
+<body>
+    <div class="floating-menu">
+        <button class="main-button" id="mainButton" aria-label="Toggle social menu">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div class="social-buttons" id="socialButtons">
+            <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                
+                <button class="social-btn" aria-label="Facebook" data-platform="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+            </a>
+            <button class="social-btn" aria-label="Twitter" data-platform="Twitter">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button class="social-btn" aria-label="Instagram" data-platform="Instagram">
+                <i class="fab fa-instagram"></i>
+            </button>
+            <button class="social-btn" aria-label="WhatsApp" data-platform="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </button>
+            <button class="social-btn" aria-label="YouTube" data-platform="YouTube">
+                <i class="fab fa-youtube"></i>
+            </button>
+            <button class="social-btn" aria-label="LinkedIn" data-platform="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </button>
+            <button class="social-btn" aria-label="Reddit" data-platform="Reddit">
+                <i class="fab fa-reddit-alien"></i>
+            </button>
+            <button class="social-btn" aria-label="Discord" data-platform="Discord">
+                <i class="fab fa-discord"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const mainButton = document.getElementById('mainButton');
+        const socialButtons = document.getElementById('socialButtons');
+        let isOpen = false;
+
+        // Set CSS variables for hover positions (left side only)
+        const socialBtns = document.querySelectorAll('.social-btn');
+        const positions = [
+            { x: 0, y: -75 },       // Top
+            { x: -25, y: -70 },     // Top-left close
+            { x: -53, y: -53 },     // Top-left diagonal
+            { x: -70, y: -25 },     // Left-top close
+            { x: -75, y: 0 },       // Left
+            { x: -70, y: 25 },      // Left-bottom close
+            { x: -53, y: 53 },      // Bottom-left diagonal
+            { x: -25, y: 70 }       // Bottom-left close
+        ];
+
+        socialBtns.forEach((btn, index) => {
+            btn.style.setProperty('--hover-x', positions[index].x + 'px');
+            btn.style.setProperty('--hover-y', positions[index].y + 'px');
+        });
+
+        mainButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            isOpen = !isOpen;
+            
+            if (isOpen) {
+                mainButton.classList.add('active');
+                socialButtons.classList.add('active');
+                mainButton.setAttribute('aria-expanded', 'true');
+            } else {
+                mainButton.classList.remove('active');
+                socialButtons.classList.remove('active');
+                mainButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (isOpen && !e.target.closest('.floating-menu')) {
+                isOpen = false;
+                mainButton.classList.remove('active');
+                socialButtons.classList.remove('active');
+                mainButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Add click handlers for social buttons
+        socialBtns.forEach((btn) => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const platform = btn.getAttribute('data-platform');
+                console.log(`${platform} clicked`);
+                // Add your social media links here
+                // window.open('your-social-media-url', '_blank');
+            });
+        });
+
+        // Keyboard accessibility
+        mainButton.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mainButton.click();
+            }
+        });
+    </script>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
